@@ -1,5 +1,5 @@
-export function Heading5 ({ children }) {
+export function Heading5 ({ children, className }) {
   return (
-    <h5>{children}</h5>
+    <h5 className={className}>{children}</h5>
   );
 }
