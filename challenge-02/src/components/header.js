@@ -7,7 +7,7 @@ export function Header () {
     <header className="site-wrapper__header">
       <Heading1 className="site-wrapper__logo">Stela</Heading1>
       
-      <Button kind="secondary">Sign up</Button>
+      <Button kind="secondary">Get in touch</Button>
     </header>
   );
 }

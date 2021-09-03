@@ -13,7 +13,12 @@ export function Sidebar ({ titles, handleItemClick }) {
               key={item.id} 
               onClick={(event) => handleItemClick(event, index)}
             >
-              <Heading6><a href="#">{item.title}</a></Heading6>
+              <Heading6>
+                <a href="#">
+                  <small>{item.id}</small> 
+                  {item.title}
+                </a>
+              </Heading6>
             </li>
           ))}
         </ul>
