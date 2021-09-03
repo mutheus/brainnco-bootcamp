@@ -2,13 +2,13 @@ import { Heading2 } from './heading2';
 import { Heading3 } from './heading3';
 import { Button } from './button';
 
-export function Content () {
+export function Content ({ title, content }) {
   return (
     <main className="site-wrapper__content">
       <section className="site-wrapper__hero">
-        <Heading2>Aftertaste half and half caramelization, coffee filter.</Heading2>
+        <Heading2>{title}</Heading2>
         
-        <p>Variety galão decaffeinated seasonal café au lait sit est kopi-luwak con panna. Americano, half and half and cup mocha galão arabica saucer strong mocha plunger pot.</p>
+        <p>{content}</p>
       
         <Button kind="primary">Buy me a coffee ☕</Button>
       </section>
