@@ -1,10 +1,10 @@
-export function Sidebar ({ titles }) {
+export function Sidebar ({ titles, handleItemClick }) {
   return (
     <aside className="site-wrapper__sidebar">
       <ul>
-        { titles.map((item) => (
-          <li key={item.id}>
-            <a>{item.title}</a>
+        { titles.map((item, index) => (
+          <li key={item.id} onClick={(event) => handleItemClick(event, index)}>
+            <a href="#">{item.title}</a>
           </li>
         ))}
       </ul>
