@@ -14,33 +14,38 @@ export function Table ({ cars }) {
         </thead>
         
         <tbody>
-          {cars ? (
-          cars.map((car) => (
-            <tr dataSet={car.plate}>
-              <td>
-                <img src={car.image} alt={car.brandModel} />
-              </td>
-              <td>
-                <p>{car.brandModel}</p>
-              </td>
-              <td>
-                <p>{car.year}</p>
-              </td>
-              <td>
-                <p>{car.plate}</p>
-              </td>
-              <td>
-                <div>{car.color}</div>
-              </td>
-              <td>
-                <button>×</button>
-              </td>
-            </tr>
-          ))
+          { cars.length !== 0 ? (
+            cars.map((car) => (
+              <tr dataSet={car.plate}>
+                <td>
+                  <img src={car.image} alt={car.brandModel} />
+                </td>
+                <td>
+                  <p>{car.brandModel}</p>
+                </td>
+                <td>
+                  <p>{car.year}</p>
+                </td>
+                <td>
+                  <p>{car.plate}</p>
+                </td>
+                <td>
+                  <div 
+                    className="container-color" 
+                    style={{ 
+                      backgroundColor: `${car.color}`
+                    }}
+                  ></div>
+                </td>
+                <td>
+                  <button className="delete">×</button>
+                </td>
+              </tr>
+            ))
           ) : (
             <tr>
               <td colspan="6">
-                <p>Nenhum carro encontrado</p>
+                <p className="empty-table">Nenhum carro encontrado</p>
               </td>
             </tr>
           )}
