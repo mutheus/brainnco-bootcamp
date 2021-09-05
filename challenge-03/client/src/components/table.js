@@ -13,7 +13,7 @@ export function Table () {
           </tr>
         </thead>
         
-        <tbody data-js="tbody"></tbody>
+        <tbody></tbody>
       </table>
     </div>
   );
