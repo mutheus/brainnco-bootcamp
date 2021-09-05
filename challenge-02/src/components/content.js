@@ -1,5 +1,4 @@
 import { Heading2 } from './heading2';
-import { Heading3 } from './heading3';
 import { Button } from './button';
 
 export function Content ({ title, content }) {

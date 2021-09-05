@@ -14,7 +14,7 @@ export function Sidebar ({ titles, handleItemClick }) {
               onClick={(event) => handleItemClick(event, index)}
             >
               <Heading6>
-                <a href="#">
+                <a href={item.id}>
                   <small>{item.id}</small> 
                   {item.title}
                 </a>
