@@ -1,6 +1,6 @@
-export function Form () {
+export function Form ({ handleSubmit }) {
   return (
-    <form class="car-form">
+    <form class="car-form" onSubmit={handleSubmit}>
       <div>
         <label for="image">
           Image:<br/>
@@ -11,7 +11,7 @@ export function Form () {
       <div>
         <label for="brand-model">
           Model:<br/>
-          <input placeholder="e.g. Maverick" type="text" id="brand-model" name="brand-model"/>
+          <input placeholder="e.g. Maverick" type="text" id="brand-model" name="brandModel"/>
         </label>
       </div>
       
@@ -37,7 +37,7 @@ export function Form () {
       </div>
       
       <div>
-        <button type="submit">Add car</button>
+        <button type="submit" name="submit">Add car</button>
       </div>
     </form>
   );
