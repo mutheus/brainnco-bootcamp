@@ -1,3 +1,6 @@
+/**:not(path):not(g) {    color:                    hsla(210, 100%, 100%, 0.9) !important;    background:               hsla(210, 100%,  50%, 0.5) !important;    outline:    solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
+    box-shadow: none !important;}*/
+
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -9,6 +12,88 @@ html {
 
 body {
   font-family: system-ui, sans-serif;
-  color: #222;
+  color: #4F4F4F;
   margin: 0;
+}
+
+.app {
+  padding: 2em 1em;
+}
+
+form {
+  margin-bottom: 2em;
+}
+
+.container-color {
+  width: 100%;
+  padding: 2px;
+  border-radius: 9px;
+  max-width: 100px;
+  aspect-ratio: 1/1;
+  display: flex;
+  place-items: center;
+  place-content: center;
+}
+
+.car-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #4F4F4F;
+  padding: .5em;
+  text-align: left;
+}
+
+img {
+  display: block;
+  width: 135px;
+}
+
+input,
+button {
+  height: 46px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #333;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 0 1.4em;
+}
+
+input {
+  height: 36px;
+}
+
+input[type="color"] {
+  padding: 0 .1em;
+}
+
+.empty-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.delete {
+  height: 20px;
+  padding: 0;
+  aspect-ratio: 1/1;
+  border: 2px solid #333;
+  font-size: 1.1rem;
+  font-weight: 500;
 }

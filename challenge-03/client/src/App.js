@@ -1,7 +1,12 @@
+import { Form } from './components/form';
+import { Table } from './components/table';
+
 function App() {
   return (
-    <div>
-      <h1>Hello, World!</h1>
+    <div className="app">
+      <Form />
+      
+      <Table />
     </div>
   );
 }
