@@ -16,6 +16,10 @@ body {
   margin: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
 .app {
   padding: 2em 1em;
 }
@@ -96,4 +100,16 @@ input[type="color"] {
   border: 2px solid #333;
   font-size: 1.1rem;
   font-weight: 500;
+}
+
+.alert {
+  position: fixed;
+  top: 4em;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: #FFF;
+  padding: 1em;
+  border-radius: 5px;
+  border: 3px solid #333;
 }

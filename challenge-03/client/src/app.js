@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react';
+import { get, post, del } from './services/http';
 import { Form } from './components/form';
 import { Table } from './components/table';
-import { get, post, del } from './services/http';
+import { Alert } from './components/alert';
 
 const url = 'http://localhost:3333/cars';
   
 function App () {
   const [cars, setCars] = useState([]);
+  const [message, setMessage] = useState('');
+  const [isAlertTrue, setIsAlertTrue] = useState(false);
   
   useEffect(() => {
     async function getCars () {
       const result = await get(url);
-      
       if (result.error) {
+        setMessage(result.message);
         return;
       }
       
@@ -20,7 +23,17 @@ function App () {
     }
     
     getCars();
-  }, [cars])
+  }, [])
+  
+  useEffect(() => {
+    const id = setTimeout(function() {
+      setMessage('');
+    }, 1000);
+    
+    return () => {
+      clearTimeout(id);
+    }
+  }, [message])
   
   async function handleSubmit (e) {
     e.preventDefault();
@@ -38,6 +51,7 @@ function App () {
     const result = await post(url, car);
     
     if (result.error) {
+      setMessage(result.message);
       return;
     }
     
@@ -50,6 +64,7 @@ function App () {
     const result = await del(url, { plate });
     
     if (result.error) {
+      setMessage(result.message);
       return;
     }
     
@@ -58,6 +73,8 @@ function App () {
   
   return (
     <div className="app">
+      {message.length > 0 && <Alert message={message} />}
+    
       <Form handleSubmit={handleSubmit} />
       
       <Table 
