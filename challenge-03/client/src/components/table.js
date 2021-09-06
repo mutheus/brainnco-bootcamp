@@ -16,7 +16,7 @@ export function Table ({ cars }) {
         <tbody>
           { cars.length !== 0 ? (
             cars.map((car) => (
-              <tr dataSet={car.plate}>
+              <tr dataSet={car.plate} key={car.plate}>
                 <td>
                   <img src={car.image} alt={car.brandModel} />
                 </td>

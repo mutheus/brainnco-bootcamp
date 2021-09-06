@@ -1,44 +1,37 @@
 export function Form ({ handleSubmit }) {
   return (
     <form class="car-form" onSubmit={handleSubmit}>
-      <div>
-        <label for="image">
-          Image:<br/>
-          <input placeholder="e.g. https://website.com/my-awesome-car" type="url" id="image" name="image"/>
-        </label>
-      </div>
+      <label>
+        <p>Image:</p>
+        
+        <input placeholder="e.g. https://website.com/my-awesome-car" type="url" name="image"/>
+      </label>
       
-      <div>
-        <label for="brand-model">
-          Model:<br/>
-          <input placeholder="e.g. Maverick" type="text" id="brand-model" name="brandModel"/>
-        </label>
-      </div>
+      <label>
+        <p>Model:</p>
+        
+        <input placeholder="e.g. Maverick" type="text" name="brandModel"/>
+      </label>
       
-      <div>
-        <label for="year">
-          Year:<br/>
-          <input placeholder="e.g. 1970" type="number" id="year" name="year"/>
-        </label>
-      </div>
+      <label>
+        <p>Year:</p>
+        
+        <input placeholder="e.g. 1970" type="number" name="year"/>
+      </label>
       
-      <div>
-        <label for="plate">
-          Plate:<br/>
-          <input placeholder="e.g. HGD6OFY" type="text" id="plate" name="plate"/>
-        </label>
-      </div>
+      <label>
+        <p>Plate:</p>
+        
+        <input placeholder="e.g. HGD6OFY" type="text" name="plate"/>
+      </label>
       
-      <div>
-        <label for="color">
-          Color:<br/>
-          <input type="color" id="color" name="color"/>
-        </label>
-      </div>
+      <label>
+        <p>Color:</p>
+        
+        <input type="color" name="color"/>
+      </label>
       
-      <div>
-        <button type="submit" name="submit">Add car</button>
-      </div>
+      <button type="submit">Add car</button>
     </form>
   );
 }
