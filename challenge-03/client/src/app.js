@@ -5,14 +5,27 @@ import { get, post, del } from './services/http';
 
 const url = 'http://localhost:3333/cars';
   
-function App() {
+function App () {
   const [cars, setCars] = useState([]);
+  
+  useEffect(() => {
+    async function getCars () {
+      const result = await get(url);
+      
+      if (result.error) {
+        return;
+      }
+      
+      setCars(result);
+    }
+    
+    getCars();
+  }, [cars])
   
   async function handleSubmit (e) {
     e.preventDefault();
     
     const car = {
-      id: e.target.elements.plate.value,
       image: e.target.elements.image.value,
       brandModel: e.target.elements.brandModel.value,
       year: e.target.elements.year.value,
@@ -23,28 +36,34 @@ function App() {
     const newCars = [...cars, car];
     
     const result = await post(url, car);
-    setCars(newCars);
     
     if (result.error) {
-      alert(JSON.stringify(result.message))
-    }
-  }
-  
-  useEffect(() => {
-    async function getCars () {
-      const result = await get(url);
-      
-      setCars(result);
+      return;
     }
     
-    getCars();
-  }, [cars])
+    e.target.reset();
+    setCars(newCars);
+  }
+  
+  async function handleRemoveClick (plate) {
+    const newCars = cars.filter(car => car.plate !== plate);
+    const result = await del(url, { plate });
+    
+    if (result.error) {
+      return;
+    }
+    
+    setCars(newCars);
+  }
   
   return (
     <div className="app">
       <Form handleSubmit={handleSubmit} />
       
-      <Table cars={cars} />
+      <Table 
+        cars={cars} 
+        handleRemoveClick={handleRemoveClick} 
+      />
     </div>
   );
 }
