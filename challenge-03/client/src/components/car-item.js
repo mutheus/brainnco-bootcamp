@@ -2,7 +2,9 @@ export function CarItem ({ car, handleRemoveClick }) {
   return (
     <tr key={car.plate}>
       <td>
-        <img src={car.image} alt={car.brandModel} />
+        <div className="car-image">
+          <img src={car.image} alt={car.brandModel} />
+        </div>
       </td>
       <td>
         <p>{car.brandModel}</p>

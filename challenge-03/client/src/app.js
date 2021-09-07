@@ -9,30 +9,29 @@ const url = 'http://localhost:3333/cars';
 function App () {
   const [cars, setCars] = useState([]);
   const [message, setMessage] = useState('');
-  const [isAlertTrue, setIsAlertTrue] = useState(false);
+  const [isAddingCar, setIsAddingCar] = useState(false);
   
   useEffect(() => {
     async function getCars () {
       const result = await get(url);
+      
       if (result.error) {
         setMessage(result.message);
         return;
       }
       
-      setCars(result);
+      setCars(result.reverse());
     }
     
     getCars();
   }, [])
   
   useEffect(() => {
-    const id = setTimeout(function() {
+    const timer = setTimeout(() => {
       setMessage('');
     }, 1000);
     
-    return () => {
-      clearTimeout(id);
-    }
+    return () => clearTimeout(timer);
   }, [message])
   
   async function handleSubmit (e) {
@@ -46,7 +45,7 @@ function App () {
       color: e.target.elements.color.value
     }
     
-    const newCars = [...cars, car];
+    const newCars = [car, ...cars];
     
     const result = await post(url, car);
     
@@ -57,6 +56,7 @@ function App () {
     
     e.target.reset();
     setCars(newCars);
+    setIsAddingCar(false);
   }
   
   async function handleRemoveClick (plate) {
@@ -71,16 +71,42 @@ function App () {
     setCars(newCars);
   }
   
+  function closeModal () {
+    setIsAddingCar(false);
+  }
+  
   return (
     <div className="app">
       {message.length > 0 && <Alert message={message} />}
-    
-      <Form handleSubmit={handleSubmit} />
       
-      <Table 
-        cars={cars} 
-        handleRemoveClick={handleRemoveClick} 
-      />
+      <header className="app__header">
+        <a href="/" className="app__logo">
+          <h1>mutheuswagen</h1>
+        </a>
+      </header>
+      <main className="content">
+        {isAddingCar && (
+          <div className="modal">
+            <Form handleSubmit={handleSubmit} closeModal={closeModal} />
+          </div>
+        )}
+        
+        <div className="content__hero">
+          <h2>Welcome, John 🤗</h2>
+        </div>
+        
+        
+        <div className="content__actions">
+          <h3 className="content__title">All cars</h3>
+          
+          <button onClick={() => setIsAddingCar(true)}><span>+</span> Add car</button>
+        </div>
+        
+        <Table 
+          cars={cars} 
+          handleRemoveClick={handleRemoveClick} 
+        />
+      </main>
     </div>
   );
 }

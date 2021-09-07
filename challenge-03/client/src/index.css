@@ -11,8 +11,8 @@ html {
 }
 
 body {
-  font-family: system-ui, sans-serif;
-  color: #4F4F4F;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
   margin: 0;
 }
 
@@ -20,33 +20,128 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-.app {
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app__header {
   padding: 2em 1em;
 }
 
-form {
-  margin-bottom: 2em;
+.app__logo h1 {
+  width: max-content;
+  margin: 0 auto;
+  color: #4F4F4F;
+  font-size: .8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: .4em;
+}
+
+.content {
+  padding: 2em 1em;
+}
+
+.modal {
+  position: fixed;
+  display: grid;
+  place-items: center;
+  padding: 2em 0;
+  top: 0;
+  left: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+.content__hero {
+  height: 30vh;
+  padding: 2em 0;
+}
+
+.content__hero h2 {
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: #000;
+}
+
+.content__title {
+  color: #000;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.content__actions {
+  display: flex;
+  place-items: center;
+}
+
+.content__actions button {
+  height: 46px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 0 1.4em;
+  margin-left: auto;
+}
+
+.content__actions button span {
+  display: block;
+  font-weight: 400;
+  margin-right: 8px;
+  font-size: 1.3rem;
 }
 
 .container-color {
   width: 100%;
   padding: 2px;
-  border-radius: 9px;
-  max-width: 100px;
+  border-radius: 50%;
+  max-width: 20px;
   aspect-ratio: 1/1;
-  display: flex;
-  place-items: center;
-  place-content: center;
 }
 
 .car-form {
   display: flex;
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  height: min-content;
+  border-radius: 9px;
+  background-color: #FFF;
+  padding: 2em;
   flex-direction: column;
   gap: 1em;
 }
 
+.car-form p {
+  margin: 4px;
+  height: auto;
+}
+
+.car-form__btn {
+  border: none;
+  padding: 0;
+  top: 0;
+  right: 0;
+  aspect-ratio: 1/1;
+  position: absolute;
+  font-size: 1.5rem;
+  color: #B6B6B6;
+  font-weight: 400;
+  width: min-content;
+}
+
 .table-wrapper {
   overflow-x: auto;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+  margin: 2em 0;
 }
 
 table {
@@ -55,14 +150,30 @@ table {
 }
 
 td, th {
-  border: 1px solid #4F4F4F;
   padding: .5em;
-  text-align: left;
 }
 
-img {
+td {
+  color: #4F4F4F;
+}
+
+th {
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 500;
+  color: #000;
+}
+
+tbody tr {
+  border-top: 1px solid #D1D1D1;
+}
+
+.car-image img {
   display: block;
-  width: 135px;
+  width: 100px;
+  aspect-ratio: 2/1;
+  border-radius: 9px;
+  object-fit: cover;
 }
 
 input,
@@ -72,18 +183,24 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid #333;
+  border: 1px solid #D1D1D1;
   border-radius: 5px;
   background-color: transparent;
   padding: 0 1.4em;
 }
 
-input {
-  height: 36px;
+.car-form input:not([type="color"]) {
+  width: 100%;
 }
 
 input[type="color"] {
+  width: 56px;
   padding: 0 .1em;
+}
+
+::-webkit-color-swatch,
+::-moz-color-swatch {
+  border-color: transparent;
 }
 
 .empty-table {
@@ -97,13 +214,16 @@ input[type="color"] {
   height: 20px;
   padding: 0;
   aspect-ratio: 1/1;
-  border: 2px solid #333;
+  background-color: #FEDCDB;
+  border: none;
+  color: #FC918E;
   font-size: 1.1rem;
   font-weight: 500;
 }
 
 .alert {
   position: fixed;
+  z-index: 1;
   top: 4em;
   left: 50vw;
   transform: translate(-50%, -50%);
@@ -111,5 +231,9 @@ input[type="color"] {
   background-color: #FFF;
   padding: 1em;
   border-radius: 5px;
-  border: 3px solid #333;
+  border: 1px solid #D1D1D1;
+}
+
+.alert h5 {
+  font-weight: 400;
 }
