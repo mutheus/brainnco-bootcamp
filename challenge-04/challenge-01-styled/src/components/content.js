@@ -1,17 +1,41 @@
 import { Heading2 } from './heading2';
 import { Heading3 } from './heading3';
-import { Button } from './button';
+import { Button } from '../styles';
+
+import styled from 'styled-components';
+
+const ContentWrapper = styled.main`
+  grid-area: content;
+  background-color: #FFD7D2;
+  color: #FF9286;
+  padding: 2em;
+  text-transform: none;
+  gap: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  p {
+    max-width: 500px;
+  }
+`;
+
+const Hero = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+`;
 
 export function Content () {
   return (
-    <main className="site-wrapper__content">
-      <section className="site-wrapper__hero">
+    <ContentWrapper>
+      <Hero>
         <Heading2>Aftertaste half and half caramelization, coffee filter.</Heading2>
         
         <p>Variety galão decaffeinated seasonal café au lait sit est kopi-luwak con panna. Americano, half and half and cup mocha galão arabica saucer strong mocha plunger pot.</p>
       
-        <Button kind="primary">Buy me a coffee ☕</Button>
-      </section>
+        <Button primary>Buy me a coffee ☕</Button>
+      </Hero>
       
       <section>
         <Heading3>Caramelization that whipped cappuccino beans acerbic brewed flavour espresso.</Heading3>
@@ -25,6 +49,6 @@ export function Content () {
           <li>24-ounce glass jar with a screw-on-lid</li>
         </ul>
       </section>
-    </main>
+    </ContentWrapper>
   );
 }
