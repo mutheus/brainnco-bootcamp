@@ -1,12 +1,31 @@
-import { Heading1 } from './heading1';
-import { Button } from './button';
+import { Button } from '../styles';
+
+import styled from 'styled-components';
+
+const HeaderWrapper = styled.header`
+  grid-area: header;
+  display: flex;
+  place-items: center;
+  padding: 2em;
+  display: flex;
+  gap: 1em;
+  
+  *:last-child {
+    margin-left: auto;
+  }
+`;
+
+const Logo = styled.h1`
+  font-size: 1.5rem;
+  text-transform: lowercase;
+`;
 
 export function Header () {
   return (
-    <header className="site-wrapper__header">
-      <Heading1 className="site-wrapper__logo">Stela</Heading1>
+    <HeaderWrapper>
+      <Logo>Stela</Logo>
       
-      <Button kind="secondary">Get in touch</Button>
-    </header>
+      <Button secondary>Get in touch</Button>
+    </HeaderWrapper>
   );
 }
