@@ -1,13 +1,50 @@
 import { Heading5 } from './heading5';
 import { Heading6 } from './heading6';
 
+import styled from 'styled-components';
+
+const SidebarWrapper = styled.aside`
+  grid-area: sidebar;
+  padding: 2em;
+`;
+
+const Recommended = styled.div`
+  background-color: #F1F4F5;
+  padding: 2em;
+  
+  h5 {
+    text-transform: uppercase;
+  }
+`;
+
+const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: .7em;
+  
+  h6 {
+    font-weight: 500;
+    font-size: .87rem;
+  }
+  
+  small {
+    margin-right: 1em;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+  }
+`;
+
 export function Sidebar ({ titles, handleItemClick }) {
   return (
-    <aside className="site-wrapper__sidebar">
-      <div className="recommended">
-        <Heading5 className="recommended__heading">Popular posts</Heading5>
+    <SidebarWrapper>
+      <Recommended>
+        <Heading5>Popular posts</Heading5>
       
-        <ul className="recommended__list">
+        <List>
           { titles.map((item, index) => (
             <li 
               key={item.id} 
@@ -21,8 +58,8 @@ export function Sidebar ({ titles, handleItemClick }) {
               </Heading6>
             </li>
           ))}
-        </ul>
-      </div>
-    </aside>
+        </List>
+      </Recommended>
+    </SidebarWrapper>
   );
 }
