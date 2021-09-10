@@ -1,6 +1,6 @@
 export function Form ({ handleSubmit, closeModal }) {
   return (
-    <form class="car-form" onSubmit={handleSubmit}>
+    <form className="car-form" onSubmit={handleSubmit}>
       <button className="car-form__btn" onClick={closeModal}>×</button>
       
       <label>

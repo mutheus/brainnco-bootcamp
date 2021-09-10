@@ -3,9 +3,9 @@ import { get, post, del } from './services/http';
 import { Form } from './components/form';
 import { Table } from './components/table';
 import { Alert } from './components/alert';
+import * as S from './styles';
 
 import GlobalStyle from './global-style';
-import styled from 'styled-components';
 
 const url = 'http://localhost:3333/cars';
   
@@ -79,17 +79,18 @@ function App () {
   }
   
   return (
-    <div className="app">
+    <>
       <GlobalStyle />
       
       {message.length > 0 && <Alert message={message} />}
       
-      <header className="app__header">
-        <a href="/" className="app__logo">
-          <h1>mutheuswagen</h1>
+      <S.Wrapper>
+        <a href="/">
+          <S.Logo>mutheuswagen</S.Logo>
         </a>
-      </header>
-      <main className="content">
+      </S.Wrapper>
+
+      <S.Wrapper as="main">
         {isAddingCar && (
           <div className="modal">
             <Form handleSubmit={handleSubmit} closeModal={closeModal} />
@@ -111,8 +112,8 @@ function App () {
           cars={cars} 
           handleRemoveClick={handleRemoveClick} 
         />
-      </main>
-    </div>
+      </S.Wrapper>
+    </>
   );
 }
 

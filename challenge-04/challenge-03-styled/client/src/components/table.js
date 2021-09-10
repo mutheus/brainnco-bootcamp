@@ -2,7 +2,7 @@ import { CarItem } from './car-item';
 
 export function Table ({ cars, handleRemoveClick }) {
   return (
-    <div class="table-wrapper">
+    <div className="table-wrapper">
       <table>
         <thead>
           <tr>
@@ -25,7 +25,7 @@ export function Table ({ cars, handleRemoveClick }) {
             ))
           ) : (
             <tr>
-              <td colspan="6">
+              <td colSpan="6">
                 <p className="empty-table">Nenhum carro encontrado</p>
               </td>
             </tr>
