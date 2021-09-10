@@ -4,6 +4,9 @@ import { Form } from './components/form';
 import { Table } from './components/table';
 import { Alert } from './components/alert';
 
+import GlobalStyle from './global-style';
+import styled from 'styled-components';
+
 const url = 'http://localhost:3333/cars';
   
 function App () {
@@ -77,6 +80,8 @@ function App () {
   
   return (
     <div className="app">
+      <GlobalStyle />
+      
       {message.length > 0 && <Alert message={message} />}
       
       <header className="app__header">
