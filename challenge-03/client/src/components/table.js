@@ -1,8 +1,8 @@
 import { CarItem } from './car-item';
 
-export function Table ({ cars, handleRemoveClick }) {
+export function Table({ cars, handleRemoveClick }) {
   return (
-    <div class="table-wrapper">
+    <div className="table-wrapper">
       <table>
         <thead>
           <tr>
@@ -14,18 +14,25 @@ export function Table ({ cars, handleRemoveClick }) {
             <th></th>
           </tr>
         </thead>
-        
+
         <tbody>
-          { cars.length !== 0 ? (
+          {cars === null ? (
+            <tr>
+              <td colSpan="6">
+                <p className="empty-table">Looding...</p>
+              </td>
+            </tr>
+          ) : cars.length ? (
             cars.map((car) => (
-              <CarItem 
-                car={car} 
-                handleRemoveClick={handleRemoveClick} 
+              <CarItem
+                key={car.plate}
+                car={car}
+                handleRemoveClick={handleRemoveClick}
               />
             ))
           ) : (
             <tr>
-              <td colspan="6">
+              <td colSpan="6">
                 <p className="empty-table">Nenhum carro encontrado</p>
               </td>
             </tr>

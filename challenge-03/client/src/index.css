@@ -6,7 +6,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -16,7 +18,12 @@ body {
   margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
@@ -32,11 +39,11 @@ a {
 .app__logo h1 {
   width: max-content;
   margin: 0 auto;
-  color: #4F4F4F;
-  font-size: .8rem;
+  color: #4f4f4f;
+  font-size: 0.8rem;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: .4em;
+  letter-spacing: 0.4em;
 }
 
 .content {
@@ -82,9 +89,10 @@ a {
   height: 46px;
   font-weight: 500;
   display: flex;
+  cursor: pointer;
   justify-content: center;
   align-items: center;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
   border-radius: 5px;
   background-color: transparent;
   padding: 0 1.4em;
@@ -113,10 +121,14 @@ a {
   max-width: 500px;
   height: min-content;
   border-radius: 9px;
-  background-color: #FFF;
+  background-color: #fff;
   padding: 2em;
   flex-direction: column;
   gap: 1em;
+}
+
+.car-form button {
+  cursor: pointer;
 }
 
 .car-form p {
@@ -129,17 +141,18 @@ a {
   padding: 0;
   top: 0;
   right: 0;
+  cursor: pointer;
   aspect-ratio: 1/1;
   position: absolute;
   font-size: 1.5rem;
-  color: #B6B6B6;
+  color: #b6b6b6;
   font-weight: 400;
   width: min-content;
 }
 
 .table-wrapper {
   overflow-x: auto;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
   border-radius: 5px;
   margin: 2em 0;
 }
@@ -149,12 +162,13 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
-  padding: .5em;
+td,
+th {
+  padding: 0.5em;
 }
 
 td {
-  color: #4F4F4F;
+  color: #4f4f4f;
 }
 
 th {
@@ -165,7 +179,7 @@ th {
 }
 
 tbody tr {
-  border-top: 1px solid #D1D1D1;
+  border-top: 1px solid #d1d1d1;
 }
 
 .car-image img {
@@ -183,19 +197,19 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
   border-radius: 5px;
   background-color: transparent;
   padding: 0 1.4em;
 }
 
-.car-form input:not([type="color"]) {
+.car-form input:not([type='color']) {
   width: 100%;
 }
 
-input[type="color"] {
+input[type='color'] {
   width: 56px;
-  padding: 0 .1em;
+  padding: 0 0.1em;
 }
 
 ::-webkit-color-swatch,
@@ -214,9 +228,10 @@ input[type="color"] {
   height: 20px;
   padding: 0;
   aspect-ratio: 1/1;
-  background-color: #FEDCDB;
+  cursor: pointer;
+  background-color: #fedcdb;
   border: none;
-  color: #FC918E;
+  color: #fc918e;
   font-size: 1.1rem;
   font-weight: 500;
 }
@@ -228,10 +243,10 @@ input[type="color"] {
   left: 50vw;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: #FFF;
+  background-color: #fff;
   padding: 1em;
   border-radius: 5px;
-  border: 1px solid #D1D1D1;
+  border: 1px solid #d1d1d1;
 }
 
 .alert h5 {
