@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
-import { get, post, del } from "./services/http";
-import { Form } from "./components/form";
-import { Table } from "./components/table";
-import { Alert } from "./components/alert";
-import * as S from "./styles";
+import { useState, useEffect } from 'react';
+import { get, post, del } from './services/http';
+import { Form } from './components/form';
+import { Table } from './components/table';
+import { Alert } from './components/alert';
+import * as S from './styles';
 
-import GlobalStyle from "./global-style";
+import GlobalStyle from './global-style';
 
-const url = "http://localhost:3333/cars";
+const url = 'http://localhost:3333/cars';
 
 function App() {
-  const [cars, setCars] = useState([]);
-  const [message, setMessage] = useState("");
+  const [cars, setCars] = useState(null);
+  const [message, setMessage] = useState('');
   const [isAddingCar, setIsAddingCar] = useState(false);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setMessage("");
+      setMessage('');
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -92,22 +92,22 @@ function App() {
 
       <S.Wrapper as="main">
         {isAddingCar && (
-          <div className="modal">
+          <S.Modal>
             <Form handleSubmit={handleSubmit} closeModal={closeModal} />
-          </div>
+          </S.Modal>
         )}
 
-        <div className="content__hero">
-          <h2>Welcome, John 🤗</h2>
-        </div>
+        <S.Hero>
+          <S.Heading2>Welcome, John 🤗</S.Heading2>
+        </S.Hero>
 
-        <div className="content__actions">
-          <h3 className="content__title">All cars</h3>
+        <S.Actions>
+          <S.Heading3>All cars</S.Heading3>
 
-          <button onClick={() => setIsAddingCar(true)}>
-            <span>+</span> Add car
-          </button>
-        </div>
+          <S.Button onClick={() => setIsAddingCar(true)}>
+            <S.Span>+</S.Span> Add car
+          </S.Button>
+        </S.Actions>
 
         <Table cars={cars} handleRemoveClick={handleRemoveClick} />
       </S.Wrapper>
