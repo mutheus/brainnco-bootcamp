@@ -24,6 +24,11 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  ::-webkit-color-swatch,
+  ::-moz-color-swatch {
+    border-color: transparent;
+  }
 `;
 
 export default GlobalStyle;

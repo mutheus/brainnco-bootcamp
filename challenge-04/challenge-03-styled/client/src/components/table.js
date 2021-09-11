@@ -1,17 +1,50 @@
+import styled from 'styled-components';
 import { CarItem } from './car-item';
+
+const TableWrapper = styled.div`
+  overflow-x: auto;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+  margin: 2em 0;
+`;
+
+const Content = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+
+  tbody tr {
+    border-top: 1px solid #d1d1d1;
+  }
+`;
+
+const TableHeading = styled.th`
+  padding: 0.5em;
+  text-align: left;
+  white-space: nowrap;
+  font-weight: 500;
+  color: #000;
+`;
+
+const EmptyTable = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  color: #4f4f4f;
+`;
 
 export function Table({ cars, handleRemoveClick }) {
   return (
-    <div className="table-wrapper">
-      <table>
+    <TableWrapper>
+      <Content>
         <thead>
           <tr>
-            <th>Image</th>
-            <th>Brand / Model</th>
-            <th>Year</th>
-            <th>Plate</th>
-            <th>Color</th>
-            <th></th>
+            <TableHeading>Image</TableHeading>
+            <TableHeading>Brand / Model</TableHeading>
+            <TableHeading>Year</TableHeading>
+            <TableHeading>Plate</TableHeading>
+            <TableHeading>Color</TableHeading>
+            <TableHeading></TableHeading>
           </tr>
         </thead>
 
@@ -19,7 +52,9 @@ export function Table({ cars, handleRemoveClick }) {
           {cars === null ? (
             <tr>
               <td colSpan="6">
-                <p className="empty-table">Loading...</p>
+                <EmptyTable>
+                  <p>Loading...</p>
+                </EmptyTable>
               </td>
             </tr>
           ) : cars.length ? (
@@ -33,12 +68,14 @@ export function Table({ cars, handleRemoveClick }) {
           ) : (
             <tr>
               <td colSpan="6">
-                <p className="empty-table">Nenhum carro encontrado</p>
+                <EmptyTable>
+                  <p>Nenhum carro encontrado</p>
+                </EmptyTable>
               </td>
             </tr>
           )}
         </tbody>
-      </table>
-    </div>
+      </Content>
+    </TableWrapper>
   );
 }

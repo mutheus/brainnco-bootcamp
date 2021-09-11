@@ -10,11 +10,10 @@ const Input = styled.input`
   align-items: center;
   border: 1px solid #d1d1d1;
   border-radius: 5px;
-  background-color: transparent;
   padding: 0 1.4em;
 `;
 
-const FormWrapper = styled.form`
+const Content = styled.form`
   display: flex;
   position: relative;
   width: 90%;
@@ -45,9 +44,18 @@ const Label = styled.p`
   height: auto;
 `;
 
+const InputColor = styled.input`
+  height: 36px;
+  width: 46px;
+  padding: 0 0.1em;
+  display: block;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
+`;
+
 export function Form({ handleSubmit, closeModal }) {
   return (
-    <FormWrapper onSubmit={handleSubmit}>
+    <Content onSubmit={handleSubmit}>
       <CloseBtn onClick={closeModal}>×</CloseBtn>
 
       <label>
@@ -81,10 +89,10 @@ export function Form({ handleSubmit, closeModal }) {
       <label>
         <label>Color:</label>
 
-        <Input type="color" name="color" />
+        <InputColor type="color" name="color" />
       </label>
 
       <Button type="submit">Add car</Button>
-    </FormWrapper>
+    </Content>
   );
 }
