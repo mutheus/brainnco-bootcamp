@@ -15,13 +15,16 @@ const Filters = styled.ul`
 
 const Heading = styled.h4`
   font-weight: 500;
-  color: #9D9D9D;
+  cursor: pointer;
+  color: #9d9d9d;
 `;
 
 const Link = styled.a`
   /* some other style */
-  
-  ${({active}) => active && `
+
+  ${({ active }) =>
+    active &&
+    `
     background-color: #F1F4F5;
     border-radius: 4px;
     padding: .5em;
@@ -33,14 +36,22 @@ const Link = styled.a`
   `}
 `;
 
-export function Menu () {
+export function Menu() {
   return (
     <MenuWrapper>
       <Filters>
-        <Link><Heading>All</Heading></Link>
-        <Link><Heading>Travel</Heading></Link>
-        <Link active><Heading>Design</Heading></Link>
-        <Link><Heading>Brazil</Heading></Link>
+        <Link>
+          <Heading>All</Heading>
+        </Link>
+        <Link>
+          <Heading>Travel</Heading>
+        </Link>
+        <Link active>
+          <Heading>Design</Heading>
+        </Link>
+        <Link>
+          <Heading>Brazil</Heading>
+        </Link>
       </Filters>
     </MenuWrapper>
   );

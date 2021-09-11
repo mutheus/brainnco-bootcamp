@@ -1,5 +1,4 @@
 import { Heading5 } from './heading5';
-import { Heading6 } from './heading6';
 
 import styled from 'styled-components';
 
@@ -9,9 +8,9 @@ const SidebarWrapper = styled.aside`
 `;
 
 const Recommended = styled.div`
-  background-color: #F1F4F5;
+  background-color: #f1f4f5;
   padding: 2em;
-  
+
   h5 {
     text-transform: uppercase;
   }
@@ -20,41 +19,41 @@ const Recommended = styled.div`
 const List = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: .7em;
-  
-  h6 {
-    font-weight: 500;
-    font-size: .87rem;
-  }
-  
+  gap: 0.7em;
+
   small {
     margin-right: 1em;
   }
-  
-  a {
-    color: inherit;
-    text-decoration: none;
-    display: flex;
-  }
 `;
 
-export function Sidebar ({ titles, handleItemClick }) {
+const Heading6 = styled.h6`
+  font-weight: 500;
+  font-size: 0.87rem;
+`;
+
+const Anchor = styled.a`
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+`;
+
+export function Sidebar({ titles, handleItemClick }) {
   return (
     <SidebarWrapper>
       <Recommended>
         <Heading5>Popular posts</Heading5>
-      
+
         <List>
-          { titles.map((item, index) => (
-            <li 
-              key={item.id} 
+          {titles.map((item, index) => (
+            <li
+              key={item.id}
               onClick={(event) => handleItemClick(event, index)}
             >
               <Heading6>
-                <a href={item.id}>
-                  <small>{item.id}</small> 
+                <Anchor href={item.id}>
+                  <small>{item.id}</small>
                   {item.title}
-                </a>
+                </Anchor>
               </Heading6>
             </li>
           ))}

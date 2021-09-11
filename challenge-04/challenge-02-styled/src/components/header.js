@@ -9,7 +9,7 @@ const HeaderWrapper = styled.header`
   padding: 2em;
   display: flex;
   gap: 1em;
-  
+
   *:last-child {
     margin-left: auto;
   }
@@ -17,14 +17,15 @@ const HeaderWrapper = styled.header`
 
 const Logo = styled.h1`
   font-size: 1.5rem;
+  cursor: pointer;
   text-transform: lowercase;
 `;
 
-export function Header () {
+export function Header() {
   return (
     <HeaderWrapper>
       <Logo>Stela</Logo>
-      
+
       <Button secondary>Get in touch</Button>
     </HeaderWrapper>
   );
